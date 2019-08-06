@@ -1,0 +1,60 @@
+<ion-header style="background-color: #ff7507;">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button  (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Toget-me.pro</ion-title>
+    <ion-avatar size="" style="background:#09c; padding:5px; margin:0px !important; position:absolute; right: 10px; top: 5px; height: 32px; width: 32px;">
+      <img src="#" alt="D" style="display:flex; justify-content:center; align-items:center; color:#fff;">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item button (click)="showCartes()">
+      <ion-icon slot="start" name="list-box" [ngStyle]="{'color':color}"></ion-icon>
+      <ion-label>
+        <h3>Mes cartes</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="showCompte()">
+      <ion-icon slot="start" name="person" [ngStyle]="{'color':color}"></ion-icon>
+      <ion-label>
+        <h3>Mon compte</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="showConfidential()">
+      <ion-icon slot="start" name="lock" [ngStyle]="{'color':color}"></ion-icon>
+      <ion-label>
+        <h3>Confidentialité</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="showCollection()">
+      <ion-icon slot="start" name="photos" [ngStyle]="{'color':color}"></ion-icon>
+      <ion-label>
+        <h3>Ma collection</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="showHistory()">
+      <ion-icon slot="start" name="timer" [ngStyle]="{'color':color}"></ion-icon>
+      <ion-label>
+        <h3>Historique de Recherche</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="showParams()">
+      <ion-icon slot="start" name="settings" [ngStyle]="{'color':color}"></ion-icon>
+      <ion-label>
+        <h3>Paramètres</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="showLogout()">
+      <ion-icon slot="start" name="log-out" [ngStyle]="{'color':color}"></ion-icon>
+      <ion-label>
+        <h3>Déconnexion</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

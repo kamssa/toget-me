@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/accueil"></ion-back-button>
+        </ion-buttons>
+		
+        <ion-title>
+            Toutes les Cartes
+		 </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content >
+<div style="position:fixed; z-index:99; background:#fff;" *ngIf="toogleclassElementAFF == true" class="box-ctt" id="ctt-content">
+	<div style="" class="arrow_box" id="box-ctt">
+<ion-segment color="secondary" scrollable #id >
+  <ion-segment-button value="standard" checked  value="all" color="warning" class="service element_" id="element_0"  (click)="loadFilterData('',0);">
+    <ion-badge color="secondary" style="margin:5px;">{{modeles?.data?.length}}</ion-badge> <ion-label style=" text-transform: capitalize;">Tous</ion-label>
+  </ion-segment-button>
+  <ion-segment-button  value="element_{{i+1}}" class="service element_" *ngFor="let m of service; index as i"  id="element_{{i+1}}" (click)="loadFilterData(m?.service,i+1);">
+     <ion-badge color="secondary" style="margin:5px;">{{m?.nombre_element}}</ion-badge><ion-label style=" text-transform: capitalize;">{{m?.service}}</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+	</div>
+	
+	 <div style="" class="petit-carre">
+		 <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" (click)="tooglebox()" *ngIf="toogleclassElement == true"></ion-icon>
+		 <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="tooglebox()" *ngIf="toogleclassElement == false"></ion-icon>
+	 </div>
+	 
+</div>
+<div id="nativetogetc">
+    <ion-list>
+	
+        <app-modele-carte 
+			[userFilter]="userFilter"
+            (share)="share($event)" 
+            (ajouter) = "enregistrer($event)"
+			[allData]="modeles" [actionS]="false"
+        ></app-modele-carte>
+
+    </ion-list>
+
+
+</div>
+
+</ion-content>

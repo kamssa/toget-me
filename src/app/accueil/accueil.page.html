@@ -1,0 +1,62 @@
+
+<ion-content>
+<ion-item lines="none">
+ 
+
+<img src="assets/logo/logo.png" style="margin-top: 20px; width:145px; margin: 0 auto; margin-top: 20px !important;">
+
+
+<ion-avatar (click)="onModalPage()" slot="end" style="background:#09c; padding:5px; margin:0px !important; position:absolute; right: 10px; top: 5px; ">
+  <img src="#" alt="D" style="display:flex; justify-content:center; align-items:center; color:#fff;">
+</ion-avatar>
+</ion-item>
+<ion-segment color="secondary" scrollable #id >
+  <ion-segment-button value="standard" checked  value="all">
+    <ion-icon name="paper" style="color:#09c; "></ion-icon> <ion-label style=" text-transform: capitalize;">Tous</ion-label>
+  </ion-segment-button>
+  <ion-segment-button  value="entreprise">
+     <ion-icon name="briefcase" style="color:#09c;"></ion-icon><ion-label style=" text-transform: capitalize;">Entreprise</ion-label>
+  </ion-segment-button>
+  <ion-segment-button  value="particulier">
+   <ion-icon name="person" style="color:#09c;"></ion-icon> <ion-label style=" text-transform: capitalize;">Particulier</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+
+
+<ion-grid>
+ 
+  <ion-row align-items-center style="margin-top: 0px;">
+    <ion-col>
+         
+          <div class="rech" >
+            <div class="rech-fils1">
+            <input type="search" (keyup.enter)="getItems($event)" class="rech-input"  #value value="" placeholder="Recherche..."/>
+            <ion-icon name="search" class="rech-icon-search"  (click)="getItemsClick(value.value)"></ion-icon>
+            </div>
+            </div>  
+      </ion-col>
+  </ion-row>
+  <ion-row align-items-center>
+      <div class="btn">
+          <ion-button shape="round" color="light" (click)="onLaodCarteVisite(value.value, id.value)" style=" text-transform: capitalize;">Lancer la recherche</ion-button>
+      </div>
+  </ion-row>
+</ion-grid>
+
+<div class="md-cards">
+  <div class="md-card-cont">
+    <div class="tlt" style="border: 0%">
+    </div>
+    <ion-slides  class="demo-card" lines="inset">
+      <ion-slide *ngFor="let img of image" >
+        <ion-card-content>
+          <img class="md-img" [src]="img.image" draggable="true">
+          <ion-card-title>{{img.title}}</ion-card-title>
+          <ion-card-subtitle>{{img.dev}}</ion-card-subtitle>
+         </ion-card-content>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</div>
+</ion-content>

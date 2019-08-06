@@ -1,0 +1,44 @@
+Checking Java JDK and Android SDK versions
+ANDROID_SDK_ROOT=undefined (recommended setting)
+ANDROID_HOME=C:\Users\TOGET\AppData\Local\Android\sdk (DEPRECATED)
+Subproject Path: CordovaLib
+Subproject Path: app
+> Task :app:preBuild UP-TO-DATE
+> Task :CordovaLib:preBuild UP-TO-DATE
+> Task :CordovaLib:preReleaseBuild UP-TO-DATE
+> Task :CordovaLib:checkReleaseManifest UP-TO-DATE
+> Task :CordovaLib:processReleaseManifest UP-TO-DATE
+> Task :app:preReleaseBuild
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :CordovaLib:compileReleaseAidl NO-SOURCE
+> Task :app:compileReleaseAidl NO-SOURCE
+> Task :CordovaLib:packageReleaseRenderscript NO-SOURCE
+> Task :app:compileReleaseRenderscript UP-TO-DATE
+> Task :app:checkReleaseManifest UP-TO-DATE
+> Task :app:generateReleaseBuildConfig UP-TO-DATE
+> Task :app:prepareLintJar UP-TO-DATE
+> Task :app:generateReleaseSources UP-TO-DATE
+> Task :CordovaLib:compileReleaseRenderscript UP-TO-DATE
+> Task :CordovaLib:generateReleaseBuildConfig UP-TO-DATE
+> Task :CordovaLib:generateReleaseResValues UP-TO-DATE
+> Task :CordovaLib:generateReleaseResources UP-TO-DATE
+> Task :CordovaLib:packageReleaseResources UP-TO-DATE
+> Task :CordovaLib:generateReleaseRFile UP-TO-DATE
+> Task :CordovaLib:prepareLintJar UP-TO-DATE
+> Task :CordovaLib:generateReleaseSources UP-TO-DATE
+> Task :CordovaLib:javaPreCompileRelease UP-TO-DATE
+> Task :CordovaLib:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :CordovaLib:processReleaseJavaRes NO-SOURCE
+> Task :CordovaLib:transformClassesAndResourcesWithPrepareIntermediateJarsForRelease UP-TO-DATE
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :app:mainApkListPersistenceRelease UP-TO-DATE
+> Task :app:generateReleaseResValues UP-TO-DATE
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :app:mergeReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :app:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseResources
+> Task :app:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :app:compileReleaseNdk NO-SOURCE
+> Task :app:compileReleaseSources UP-TO-DATE
+Terminer le programme de commandes (O/N)ÿ? 
