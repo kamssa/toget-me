@@ -34,15 +34,15 @@ export class ComptePage implements OnInit {
               private camera: Camera , private alerteCtrl: AlertController,
               private storage: Storage) { }
               ionViewWillEnter() {
-
+           this.storage.get('access_data').then(resp => {
+             this.profil = resp;
+             console.log(this.profil);
+           });
 
               }
 
   ngOnInit() {
-      this.storage.get('access_data').then(resp => {
-          this.profil = resp;
-          console.log(this.profil);
-      });
+
     /*this.profil = {
       id_user:1,
       nom: 'YAO',

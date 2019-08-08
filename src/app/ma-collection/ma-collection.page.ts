@@ -36,7 +36,7 @@ export class MaCollectionPage implements OnInit {
     private loadingCtl: LoadingController
   ){
 this.initializeApp();
-this.showLoading();
+// this.showLoading();
   }
  recupererToken(){
    return   this.storage.get(TOKEN_KEY).then(token => {
@@ -84,8 +84,6 @@ this.showLoading();
                        if(resp['status'] === 200){
                            this.modeles = resp;
                            this.verifierRetour.next(true);
-						   
-						  
                        } else {
                           this.presentToast('Une erreur est survenue. Veuillez réessayer ');
                        }
@@ -124,8 +122,7 @@ this.showLoading();
         });
         loading.present().then(() => {
             if (this.verifierRetour.value){
-             
-			  setTimeout(()=>{ loading.dismiss(); },5000);
+             loading.dismiss();
             }
         });
 

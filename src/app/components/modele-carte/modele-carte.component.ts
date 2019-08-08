@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, LoadingController } from '@ionic/angular';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import {Platform} from '@ionic/angular';
 import {EntreprisePage} from '../../entreprise/entreprise.page';
@@ -48,19 +48,46 @@ export class ModeleCarteComponent implements OnInit {
   tailleAll=0;
 	public otp: any=[];
 	public keysearch = 0;
-	loadings = true;
+	loading = true;
 	
-  constructor(private photoViewer: PhotoViewer,private platform: Platform, private modalController: ModalController, private outil : OutilService) { }
+  constructor(private photoViewer: PhotoViewer,private platform: Platform, private modalController: ModalController, private outil : OutilService,
+    private loadingCtl: LoadingController) { this.showLoading(); }
 
   ngOnInit() {
 	  // this.tailleAll = this.allData.length;
 		let u = this;
-	  		window.onload = (e)=>{
+	  		// document.onload = (e)=>{
 				
-               u.loadings = false;
+               // u.loading = false;
 			   
-            };	
+            // };
+
+
+			window.addEventListener("DOMContentLoaded", function(event) {
+			u.loading = false;
+			 // console.log('document - DOMContentLoaded - capture'); // 2nd
+		});			
   }
+  
+  
+  
+      async showLoading(){
+        let loading = await this.loadingCtl.create({
+            message:"Chargement...",
+            duration: 2000,
+            showBackdrop: false,
+            spinner: "lines-small"
+        });
+        loading.present().then(() => {
+            if (this.loading == false){
+             loading.dismiss();
+            }
+        });
+
+
+    }
+	
+	
 	converter(param:any){
 	  let u= this;
 	  let jsonStr = param.replace(/(\w+:)|(\w+ :)/g, function(s) {
