@@ -84,6 +84,8 @@ this.showLoading();
                        if(resp['status'] === 200){
                            this.modeles = resp;
                            this.verifierRetour.next(true);
+						   
+						  
                        } else {
                           this.presentToast('Une erreur est survenue. Veuillez réessayer ');
                        }
@@ -122,7 +124,8 @@ this.showLoading();
         });
         loading.present().then(() => {
             if (this.verifierRetour.value){
-             loading.dismiss();
+             
+			  setTimeout(()=>{ loading.dismiss(); },5000);
             }
         });
 

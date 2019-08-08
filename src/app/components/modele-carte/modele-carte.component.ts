@@ -48,11 +48,18 @@ export class ModeleCarteComponent implements OnInit {
   tailleAll=0;
 	public otp: any=[];
 	public keysearch = 0;
+	loadings = true;
 	
   constructor(private photoViewer: PhotoViewer,private platform: Platform, private modalController: ModalController, private outil : OutilService) { }
 
   ngOnInit() {
 	  // this.tailleAll = this.allData.length;
+		let u = this;
+	  		window.onload = (e)=>{
+				
+               u.loadings = false;
+			   
+            };	
   }
 	converter(param:any){
 	  let u= this;
