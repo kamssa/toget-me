@@ -110,14 +110,8 @@ export class ComptePage implements OnInit {
   }
   private  getPicture(params: CameraOptions){
     this.camera.getPicture(params).then(data => {
-      let base64Image = 'data:image/jpeg;base64,' + data;
-      this.profil.photos = base64Image;
-      this.storage.get('access_data').then(resp => {
-          base64Image = resp;
-          this.storage.set('access_data', base64Image);
-          console.log('OK', base64Image);
-      });
-
-  });
+        this.profil.photos = 'data:image/jpeg;base64,' + data;
+        this.storage.set('access_data', this.profil);
+    });
   }
 }
