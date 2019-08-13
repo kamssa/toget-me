@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import { RegisterService } from './services/register.service';
 import {MessageAlerteService} from './services/message-alerte.service';
 import {ValiderTokenService} from './services/valider-token.service';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 const  TOKEN_KEY = 'access_token';
 @Component({
   selector: 'app-root',
@@ -46,7 +47,8 @@ public loading = true;
     private router: Router,
     private mesaageAlerte: MessageAlerteService,
     private validationToken: ValiderTokenService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private oneSignal: OneSignal
   ) {
     this.initializeApp();
   }
@@ -66,8 +68,20 @@ public loading = true;
      
 
     });
-	
 
+    this.oneSignal.startInit('be4d4bcd-059e-4bff-8656-16e2370c8e07', '833949477869');
+
+    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+
+    this.oneSignal.handleNotificationReceived().subscribe(() => {
+      // do something when notification is received
+    });
+
+    this.oneSignal.handleNotificationOpened().subscribe(() => {
+      // do something when a notification is opened
+    });
+
+    this.oneSignal.endInit();
 
 				
 				

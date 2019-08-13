@@ -12,7 +12,6 @@ export class MessageAlerteService {
   async presentToast(text: string) {
     const toast = await this.toastController.create({
       message: text,
-      duration: 2000
     });
     toast.present().then(() => {
       location.replace('/tabs/ma-collection');

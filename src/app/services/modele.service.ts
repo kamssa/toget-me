@@ -14,9 +14,9 @@ export class ModeleService {
     static readonly CARTE_URL = AppConfig.URL + 'Collection/collectionUsers/';
     static readonly URL_AIDE =  AppConfig.URL+'aides';
     static readonly DELETE_ELEMENT =  AppConfig.URL+'Collection/collection/';
-    public currentPage:number=0;
-    messageErreur:string;
-    public size:number=10;
+    public currentPage : number=0;
+    messageErreur : string;
+    public size : number=10;
     modeles: any;
     jwtToken: any;
     headers:any;
@@ -41,7 +41,8 @@ export class ModeleService {
       }
        public search() {
      
-           return this.http.get(ModeleService.URL + 'Search/searchLimit?'+'current=' + this.currentPage + '&size=' + this.size);
+           return this.http.get(ModeleService.URL + 'Search/searchLimit?'+'current=' +
+               this.currentPage + '&size=' + this.size);
        }
 
 
@@ -109,8 +110,7 @@ export class ModeleService {
         }
 
 
-
-		dwd(){
+        dwd(){
 		let w = window.confirm("Une mise à jour est disponible pour cette application. Voulez vous mettre à jour cette version ?");
 		if(w){
 			// this.storage.set('UPLOAD', this.uploaded_val);

@@ -10,6 +10,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import {MessageAlerteService} from '../services/message-alerte.service';
 import { ToastController, Platform } from '@ionic/angular';
 import {ModalImagePage} from '../modal-image/modal-image.page';
+import {ComptePage} from "../compte/compte.page";
 
 @Component({
   selector: 'app-accueil',
@@ -94,7 +95,8 @@ constructor(private modalController: ModalController,
     private router: Router,
     private messageAlert: MessageAlerteService,
     private auth: ValiderTokenService, private localNotifications: LocalNotifications,
-    private platform: Platform, public toastCtrl: ToastController) {
+    private platform: Platform, public toastCtrl: ToastController,
+            private validerToken: ValiderTokenService) {
 		
 		this.modelService.getUpload();
 		
@@ -192,10 +194,20 @@ openPreview(Image) {
         this.router.navigate(['./tabs/collection'],{queryParams: {'search':'','type':''}});
 
  }
- async onModalPage() {
-    const modal = await this.modalController.create({
-        component: ModalImagePage,
-    });
-    return await modal.present();
-}
+
+    async onModalPage() {
+        console.log(this.validerToken.authenticationState.value);
+        if (this.validerToken.authenticationState.value) {
+            const modal = await this.modalController.create({
+                component: ModalImagePage,
+            });
+            return await modal.present();
+        } else {
+
+            console.log('connexion');
+           // this.modalController.dismiss();
+            this.router.navigateByUrl('/connexion');
+        }
+
+    }
 }

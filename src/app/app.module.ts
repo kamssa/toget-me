@@ -46,6 +46,7 @@ import {ListeServicePage} from './liste-service/liste-service.page';
 import {SingleCartePageModule} from './single-carte/single-carte.module';
 import {SingleCartePage} from './single-carte/single-carte.page';
 import { GroupeByPipe } from './pipes/groupe-by.pipe';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 
 export  function jwtOtionsFactory(storage) {
@@ -90,6 +91,7 @@ export  function jwtOtionsFactory(storage) {
     SplashScreen,
       Camera,
     SocialSharing,
+      OneSignal,
     LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     PhotoViewer,

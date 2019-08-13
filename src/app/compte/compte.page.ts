@@ -4,22 +4,9 @@ import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 import { EditProfilComponent } from '../modal-image/edit-profil/edit-profil.component';
 import {UserModel} from '../models/user.model';
 import {Storage} from '@ionic/storage';
+import {RegisterService} from '../services/register.service';
 
-/*
-export class Personne {
-  id_user?: number;
-  nom?: string;
-  email?: string;
-  telephone?: string;
-  nom_rofil?:string;
-  photos?: string[];
-  prenoms?: string;
-  password?: string;
-  date_inscription?: string;
-  statut?: number;
-  level?: number;
-}
-*/
+
 
 @Component({
   selector: 'app-compte',
@@ -32,7 +19,8 @@ export class ComptePage implements OnInit {
 
   constructor(private modalCtrl: ModalController,
               private camera: Camera , private alerteCtrl: AlertController,
-              private storage: Storage) { }
+              private storage: Storage,
+              private auth: RegisterService) { }
               ionViewWillEnter() {
            this.storage.get('access_data').then(resp => {
              this.profil = resp;
@@ -109,9 +97,11 @@ export class ComptePage implements OnInit {
        await alert.present();
   }
   private  getPicture(params: CameraOptions){
-    this.camera.getPicture(params).then(data => {
-        this.profil.photos = 'data:image/jpeg;base64,' + data;
-        this.storage.set('access_data', this.profil);
-    });
+      this.camera.getPicture(params).then(data => {
+          this.profil.photos = 'data:image/jpeg;base64,' + data;
+          this.storage.set('access_data', this.profil);
+          this.auth.updateProfil(this.profil);
+      });
+
   }
 }
